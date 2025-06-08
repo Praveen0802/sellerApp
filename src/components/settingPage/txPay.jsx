@@ -63,10 +63,11 @@ const TXPay = () => {
   ];
 
   return (
-    <div className="bg-white h-full">
+    <div className="bg-white border-l-[1px] border-[#DADBE5] h-full">
       <div className="bg-[#F1F0FE] p-5">
         <p className="text-[18px] font-medium">TX Pay</p>
       </div>
+
       <div className="p-5 flex flex-col gap-5 border-b border-b-gray-200">
         <div className="flex flex-col sm:flex-row sm:items-end gap-3 sm:gap-0 sm:justify-between">
           <p className="text-[16px] font-medium">Account overview</p>

@@ -41,8 +41,8 @@ const SecureLayout = ({ children }) => {
   }, [router]);
 
   const fetchUserName = async () => {
-    const response = await fetchProfileDetails();
-    dispatch(updateCurrentUser(response));
+    // const response = await fetchProfileDetails();
+    // dispatch(updateCurrentUser(response));
   };
 
   useEffect(() => {

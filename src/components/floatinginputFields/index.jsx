@@ -19,6 +19,7 @@ const FloatingLabelInput = ({
   dropDownComponent,
   readOnly,
   className = "",
+  hideLabel = false,
   placeholder = "",
   error = "",
   rightIcon = null,
@@ -66,21 +67,23 @@ const FloatingLabelInput = ({
 
   return (
     <div className="relative w-full">
-      <FloatingPlaceholder
-        className={`${labelClassName} `}
-        isFocused={isFocused}
-        hasError={!!error}
-      >
-        <span
-          style={{ fontSize: isFocused ? "11px" : "13px" }}
-          className={`${labelClassName}  ${
-            error ? "text-red-500" : "text-[#808082]"
-          }`}
+      {!hideLabel && (
+        <FloatingPlaceholder
+          className={`${labelClassName} `}
+          isFocused={isFocused}
+          hasError={!!error}
         >
-          {label}
-          {mandatory ? "*" : ""}
-        </span>
-      </FloatingPlaceholder>
+          <span
+            style={{ fontSize: isFocused ? "11px" : "13px" }}
+            className={`${labelClassName}  ${
+              error ? "text-red-500" : "text-[#808082]"
+            }`}
+          >
+            {label}
+            {mandatory ? "*" : ""}
+          </span>
+        </FloatingPlaceholder>
+      )}
 
       <div className="relative">
         <input
@@ -153,7 +156,11 @@ const FloatingLabelInput = ({
             {typeof rightIcon === "function" ? rightIcon() : rightIcon}
           </div>
         )}
-        {showDropdown && dropDownComponent && <div className="absolute z-[999] shadow-md w-full bg-white">{dropDownComponent}</div>}
+        {showDropdown && dropDownComponent && (
+          <div className="absolute z-[999] shadow-md w-full bg-white">
+            {dropDownComponent}
+          </div>
+        )}
       </div>
 
       {/* {error && <p className="mt-1 text-sm text-red-500">{error}</p>} */}

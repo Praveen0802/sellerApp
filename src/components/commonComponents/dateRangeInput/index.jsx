@@ -18,7 +18,8 @@ const FloatingDateRange = ({
   labelClassName = "",
   error = "",
   singleDateMode = false,
-  subParentClassName=''
+  hideLabel = false,
+  subParentClassName = "",
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -371,23 +372,25 @@ const FloatingDateRange = ({
 
   return (
     <div className={`${parentClassName}  relative w-full`} ref={dropdownRef}>
-      <FloatingPlaceholder
-        className={`${labelClassName} ${!hideCalendarIcon && "!pl-5"} ${
-          readOnly && "bg-gray-100 "
-        }`}
-        isFocused={isFocused}
-        hasError={!!error}
-      >
-        <span
-          style={{ fontSize: isFocused ? "10px" : "11px" }}
-          className={`${labelClassName} ${readOnly && "bg-gray-100"} ${
-            error ? "text-red-500" : "text-[#808082]"
+      {!hideLabel && (
+        <FloatingPlaceholder
+          className={`${labelClassName} ${!hideCalendarIcon && "!pl-5"} ${
+            readOnly && "bg-gray-100 "
           }`}
+          isFocused={isFocused}
+          hasError={!!error}
         >
-          {label}
-          {mandatory ? "*" : ""}
-        </span>
-      </FloatingPlaceholder>
+          <span
+            style={{ fontSize: isFocused ? "10px" : "11px" }}
+            className={`${labelClassName} ${readOnly && "bg-gray-100"} ${
+              error ? "text-red-500" : "text-[#808082]"
+            }`}
+          >
+            {label}
+            {mandatory ? "*" : ""}
+          </span>
+        </FloatingPlaceholder>
+      )}
 
       <div className={`${subParentClassName} relative`}>
         {!hideCalendarIcon && (

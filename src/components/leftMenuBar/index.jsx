@@ -10,6 +10,7 @@ import documentupload from "../../../public/document-upload.svg";
 import listing from "../../../public/listing.svg";
 import shopping from "../../../public/shopping-cart-02.svg";
 import logout from "../../../public/logout.svg";
+import Bulkticket from "../../../public/Bulkticket.svg";
 import leftArrow from "../../../public/leftArrow.jpg";
 import ticketStar from "../../../public/ticket-star.svg";
 import { Menu } from "lucide-react";
@@ -25,13 +26,15 @@ const LeftMenuBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { currentUser } = useSelector((state) => state.currentUser);
   const name = currentUser?.first_name?.slice(0, 2).toUpperCase();
+  const userName = currentUser?.first_name
   const leftPaneValues = [
     {
       image: showFullDisplay ? "" : arrowRight,
       icon: <IconStore.leftArrow className="size-4 stroke-white" />,
       name: "Minimise",
     },
-    { text: name, name: name, key: "name", route: "settings/myAccount" },
+    { text: userName, name: userName, key: "name", route: "settings/myAccount" },
+    { text: name, name: name, key: "userName", route: "settings/myAccount" },
     {
       image: category,
       name: "Dashboard",
@@ -50,6 +53,18 @@ const LeftMenuBar = () => {
       name: "Lmt Trade",
       key: "lmt-trade",
       route: "trade/home",
+    },
+    {
+      image: Bulkticket,
+      name: "Tickets",
+      key: "tickets",
+      route: "tickets",
+    },
+    {
+      image: addSquare,
+      name: "Add Inventory",
+      key: "add-inventory",
+      route: "add-inventory",
     },
   ];
 

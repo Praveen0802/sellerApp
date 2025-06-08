@@ -27,7 +27,7 @@ const ChangePassword = (props) => {
     setError("");
     setIsSubmitting(true);
     const payload = {
-      user_name: profileDetails?.email,
+      email: profileDetails?.email,
       password: passwordData?.newPassword,
       confirm_password: passwordData?.confirmPassword,
     };

@@ -18,6 +18,7 @@ const FloatingSelect = ({
   name,
   required = false,
   labelClassName = "",
+  hideLabel = false,
   disabled = false,
   searchable = false,
   rightIcon = null,
@@ -221,21 +222,23 @@ const FloatingSelect = ({
 
   return (
     <div className={`relative w-full ${className}`} ref={dropdownRef}>
-      <FloatingPlaceholder
-        className={`${labelClassName} ${disabled && "!bg-gray-100"}`}
-        isFocused={isFocused || isOpen}
-        hasError={!!error}
-      >
-        <span
-          style={{ fontSize: isFocused || isOpen ? "11px" : "13px" }}
-          className={`${labelClassName} ${
-            error ? "text-red-500" : "text-[#808082]"
-          }`}
+      {!hideLabel && (
+        <FloatingPlaceholder
+          className={`${labelClassName} ${disabled && "!bg-gray-100"}`}
+          isFocused={isFocused || isOpen}
+          hasError={!!error}
         >
-          {label}
-          {mandatory ? "*" : ""}
-        </span>
-      </FloatingPlaceholder>
+          <span
+            style={{ fontSize: isFocused || isOpen ? "11px" : "13px" }}
+            className={`${labelClassName} ${
+              error ? "text-red-500" : "text-[#808082]"
+            }`}
+          >
+            {label}
+            {mandatory ? "*" : ""}
+          </span>
+        </FloatingPlaceholder>
+      )}
 
       <div
         onClick={toggleDropdown}

@@ -14,8 +14,8 @@ export const getServerSideProps = async (context) => {
   if (validToken) {
     return nextRedirect("dashboard");
   }
-  const fetchedCountryCodes = await getDialingCode();
+  // const fetchedCountryCodes = await getDialingCode();
   return {
-    props: { fetchedCountryCodes: fetchedCountryCodes?.data || [] },
+    props: {  },
   };
 };

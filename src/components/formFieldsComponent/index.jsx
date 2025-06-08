@@ -11,8 +11,9 @@ const FormFields = ({ formFields }) => {
     <>
       {formFields?.map((field, index) => {
         const {
-          type='',
+          type = "",
           label,
+          hideLabel = false,
           id,
           name,
           value,
@@ -68,6 +69,7 @@ const FormFields = ({ formFields }) => {
                 placeholder={placeholder}
                 error={error}
                 paddingClassName={className}
+                hideLabel={hideLabel}
                 className={parentClassName}
               />
             ) : type === "checkbox" ? (
@@ -95,6 +97,7 @@ const FormFields = ({ formFields }) => {
                 label={label}
                 showDropdown={showDropdown}
                 labelClassName={labelClassName}
+                hideLabel={hideLabel}
                 mandatory={mandatory}
                 dropDownComponent={dropDownComponent}
                 readOnly={readOnly || disabled}
@@ -133,6 +136,7 @@ const FormFields = ({ formFields }) => {
                 parentClassName={parentClassName}
                 label={label}
                 className={className}
+                hideLabel={hideLabel}
                 value={value}
                 hideCalendarIcon={hideCalendarIcon}
                 labelClassName={labelClassName}

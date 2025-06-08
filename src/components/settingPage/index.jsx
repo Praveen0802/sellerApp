@@ -11,6 +11,7 @@ import AddressBook from "./addressBook";
 import BankAccounts from "./bankAccounts";
 import LinkedCards from "./linkedCards";
 import TicketDelivery from "./ticketDelivery";
+import MyRefferal from "./myRefferal";
 
 const SettingsPage = (props) => {
   const { profile, apiData } = props;
@@ -25,35 +26,50 @@ const SettingsPage = (props) => {
   const profileValues = [
     {
       icon: <IconStore.profile className={IconclassName} />,
-      title: "My Account",
-      key: "myAccount",
+      title: "Overview",
+      key: "overview",
     },
     {
       icon: <IconStore.password className={IconclassName} />,
-      title: "Change Password",
-      key: "changepassword",
+      title: "TX Pay",
+      key: "txPay",
     },
     {
       icon: <IconStore.myContacts className={IconclassName} />,
-      title: "Address Book",
-      key: "addressBook",
+      title: "My Referral",
+      key: "myRefferal",
     },
+    // {
+    //   icon: <IconStore.profile className={IconclassName} />,
+    //   title: "My Account",
+    //   key: "myAccount",
+    // },
+    // {
+    //   icon: <IconStore.password className={IconclassName} />,
+    //   title: "Change Password",
+    //   key: "changepassword",
+    // },
+    // {
+    //   icon: <IconStore.myContacts className={IconclassName} />,
+    //   title: "Address Book",
+    //   key: "addressBook",
+    // },
 
-    {
-      icon: <IconStore.profile className={IconclassName} />,
-      title: "My Customers",
-      key: "myCustomers",
-    },
-    {
-      icon: <IconStore.tickets className={IconclassName} />,
-      title: "Ticket Delivery",
-      key: "ticketDelivery",
-    },
-    {
-      icon: <IconStore.cards className={IconclassName} />,
-      title: "Linked Cards",
-      key: "linkedCards",
-    },
+    // {
+    //   icon: <IconStore.profile className={IconclassName} />,
+    //   title: "My Customers",
+    //   key: "myCustomers",
+    // },
+    // {
+    //   icon: <IconStore.tickets className={IconclassName} />,
+    //   title: "Ticket Delivery",
+    //   key: "ticketDelivery",
+    // },
+    // {
+    //   icon: <IconStore.cards className={IconclassName} />,
+    //   title: "Linked Cards",
+    //   key: "linkedCards",
+    // },
   ];
 
   const handleTabClick = (tab) => {
@@ -67,15 +83,16 @@ const SettingsPage = (props) => {
   };
 
   const stepperComponent = {
-    // overview: <Overview />,
-    myAccount: <MyAccountTeam {...apiData} />,
-    changepassword: <ChangePassword {...apiData} />,
-    addressBook: <AddressBook {...apiData} />,
-    bankAccounts: <BankAccounts {...apiData} />,
-    myCustomers: <MyTeamView {...apiData} />,
-    linkedCards: <LinkedCards {...apiData} />,
-    ticketDelivery: <TicketDelivery {...apiData} />,
-    // txPay: <TXPay />,
+    overview: <Overview />,
+    myRefferal: <MyRefferal />,
+    // myAccount: <MyAccountTeam {...apiData} />,
+    // changepassword: <ChangePassword {...apiData} />,
+    // addressBook: <AddressBook {...apiData} />,
+    // bankAccounts: <BankAccounts {...apiData} />,
+    // myCustomers: <MyTeamView {...apiData} />,
+    // linkedCards: <LinkedCards {...apiData} />,
+    // ticketDelivery: <TicketDelivery {...apiData} />,
+    txPay: <TXPay />,
   };
 
   // Toggle mobile menu
@@ -165,7 +182,7 @@ const SettingsPage = (props) => {
         // Desktop Layout (Original)
         <div className="flex h-full">
           {/* Fixed left sidebar - no overflow */}
-          <div className="bg-white shadow pl-4 pr-8 py-8 h-full">
+          <div className="bg-white w-[200px] shadow pl-4 pr-8 py-8 h-full">
             <ul className="flex flex-col gap-[25px] list-none">
               {profileValues.map((value, index) => (
                 <li
