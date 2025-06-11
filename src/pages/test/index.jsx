@@ -6,9 +6,9 @@ import React from "react";
 const index = () => {
   return (
     <>
-      {/* <LogDetailsModal /> */}
+      <LogDetailsModal />
       {/* <ListSalesModal /> */}
-      <UploadTickets />
+      {/* <UploadTickets /> */}
     </>
   );
 };

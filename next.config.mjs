@@ -2,6 +2,7 @@
 const nextConfig = {
   env: {
     API_BASE_URL: "https://seller.listmyticket.com/seller",
+    
     DOMAIN_KEY:
       "jgcvdp9FwDg94kpEQY9yb9nnlOGW39srytB7YTOXHb1jnWfPf1za8Dr0FVqrM0BK",
   },

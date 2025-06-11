@@ -26,15 +26,15 @@ const LeftMenuBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { currentUser } = useSelector((state) => state.currentUser);
   const name = currentUser?.first_name?.slice(0, 2).toUpperCase();
-  const userName = currentUser?.first_name
+  const userName = currentUser?.first_name || "Us"
   const leftPaneValues = [
     {
       image: showFullDisplay ? "" : arrowRight,
       icon: <IconStore.leftArrow className="size-4 stroke-white" />,
       name: "Minimise",
     },
-    { text: userName, name: userName, key: "name", route: "settings/myAccount" },
-    { text: name, name: name, key: "userName", route: "settings/myAccount" },
+    { text: userName, name: userName, key: "name", route: "settings/overview" },
+    { text: name, name: name, key: "userName", route: "settings/overview" },
     {
       image: category,
       name: "Dashboard",

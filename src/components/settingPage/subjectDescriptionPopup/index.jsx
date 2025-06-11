@@ -7,11 +7,12 @@ import React from "react";
 
 const SubjectDescriptionPopup = () => {
   const [description, setDescription] = React.useState("");
+  const [show, setShow] = React.useState(false);
   const handleChange = (e) => {
     setDescription(e.target.value);
   };
   return (
-    <RightViewModal show={true} onClose={() => {}} outSideClickClose={false}>
+    <RightViewModal show={show} onClose={() => {}} outSideClickClose={false}>
       <div className="w-full max-w-3xl flex flex-col gap-2 h-full mx-auto rounded-lg relative bg-white shadow-lg">
         <div>
           <div className="flex px-4 py-2 border-b border-gray-200 justify-between items-center">
@@ -19,7 +20,7 @@ const SubjectDescriptionPopup = () => {
               Request a Feature
             </h2>
             <button
-              onClick={() => onClose({})}
+              onClick={() => setShow(false)}
               className="p-1 rounded-full hover:bg-gray-100 cursor-pointer transition-colors duration-200"
               aria-label="Close"
             >
